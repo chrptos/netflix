@@ -1,10 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div>
-        <h1>トップページ</h1>
-        <NuxtLink to="https://nuxtjs.org">
-            Nuxt website
-        </NuxtLink>
-    </div>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
 </template>
