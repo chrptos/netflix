@@ -1,1 +1,5 @@
-export default defineEventHandler(() => 'Test get handler')
+export default defineEventHandler((event) => {
+    return {
+        hello: 'world'
+    }
+})

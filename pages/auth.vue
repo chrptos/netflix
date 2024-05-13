@@ -10,18 +10,17 @@ const toggleVariant = () => {
     variant.value = variant.value === 'login' ? 'register' : 'login';
 };
 
-
-const register = async () => {
-    try {
-        await axios.post('/api/register', {
-            email,
-            name,
-            password,
-        });
-    } catch (error) {
-        console.log(error);
-    }
-};
+// const register = async () => {
+//     try {
+//         await axios.post('/api/register', {
+//             email,
+//             name,
+//             password,
+//         });
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
 
 </script>
 

@@ -9,9 +9,14 @@ export default defineNuxtConfig({
   },
   modules: ['@sidebase/nuxt-auth'],
   auth: {
-    baseURL: process.env.AUTH_ORIGIN,
+    // baseURL: process.env.AUTH_ORIGIN,
     provider: {
         type: 'authjs'
     }
   },
+  // modules: ["@sidebase/nuxt-auth"],
+  // auth: {
+  //   baseURL: process.env.AUTH_ORIGIN,
+  //   enableGlobalAppMiddleware: true, // サイト全体で認証を必要にする
+  // },
 })
