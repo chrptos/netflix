@@ -10,17 +10,17 @@ const toggleVariant = () => {
     variant.value = variant.value === 'login' ? 'register' : 'login';
 };
 
-// const register = async () => {
-//     try {
-//         await axios.post('/api/register', {
-//             email,
-//             name,
-//             password,
-//         });
-//     } catch (error) {
-//         console.log(error);
-//     }
-// };
+const register = async () => {
+    try {
+        await axios.post('/api/register', {
+            email: email.value,
+            name: name.value,
+            password: password.value,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 </script>
 
@@ -36,11 +36,11 @@ const toggleVariant = () => {
                         {{ variant === 'login' ? 'Sign in' : 'Register' }}
                     </h2>
                     <div class="flex flex-col gap-4">
-                        <Input v-if="variant === 'register'" label="name" id="name" type="name" :value="name"/>
-                        <Input label="email" id="email" type="email" :value="email"/>
-                        <Input label="password" id="password" type="password" :value="password"/>
+                        <Input v-if="variant === 'register'" v-model="name" label="name" id="name" type="name"/>
+                        <Input v-model="email" label="email" id="email" type="email" />
+                        <Input v-model="password" label="password" id="password" type="password"/>
                     </div>
-                    <button class="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                    <button @click="register()" class="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                         {{ variant === 'login' ? 'Login' : 'Sign up' }}
                     </button>
                     <p class="text-neutral-500 mt-12">

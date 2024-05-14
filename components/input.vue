@@ -2,7 +2,7 @@
 // Props interface
 interface Props {
   id: string;
-  value: string;
+  modelValue: string;
   label: string;
   type?: string;
 }
@@ -17,9 +17,10 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <div class="relative">
     <input
-      :id="props.id"
-      :type="props.type"
-      v-model="props.value"
+      :id="id"
+      :type="type"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       class="
         block
         rounded-md
@@ -36,7 +37,7 @@ const props = withDefaults(defineProps<Props>(), {
       placeholder=""
     />
     <label
-      :for="props.id"
+      :for="id"
       class="
         absolute
         text-md
@@ -55,7 +56,7 @@ const props = withDefaults(defineProps<Props>(), {
         peer-focus:-translate-y-3
       "
     >
-      {{ props.label }}
+      {{ label }}
     </label>
   </div>
 </template>
