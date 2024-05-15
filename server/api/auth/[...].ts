@@ -17,7 +17,7 @@ export default NuxtAuthHandler({
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Email and password required');
         }
-        console.log('------', credentials);
+
         const user = await prismadb.user.findUnique({
           where: {
             email: credentials.email

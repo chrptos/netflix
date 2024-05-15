@@ -62,6 +62,14 @@ const register = async () => {
                     <button @click="variant === 'login' ? login() : register()" class="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                         {{ variant === 'login' ? 'Login' : 'Sign up' }}
                     </button>
+                    <div class="flex flex-row items-center gap-4 mt-8 justify-center">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                            <Icon name="logos:google-icon" size="30" />
+                        </div>
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                            <Icon name="logos:github-icon" size="30" />
+                        </div>
+                    </div>
                     <p class="text-neutral-500 mt-12">
                         {{ variant === 'login' ? 'First time using Netflix?' : 'Already have an account?' }}
                         <span @click="toggleVariant" class="text-white ml-1 hover:underline cursor-pointer">

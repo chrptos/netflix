@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@sidebase/nuxt-auth'],
+  modules: ['@sidebase/nuxt-auth', 'nuxt-icon'],
   auth: {
     // baseURL: process.env.AUTH_ORIGIN,
     provider: {
