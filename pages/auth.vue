@@ -33,13 +33,11 @@ const register = async () => {
             name: name.value,
             password: password.value,
         });
-        login();
+        await login();
     } catch (error) {
         console.log(error);
     }
 };
-
-
 
 </script>
 

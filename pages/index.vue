@@ -1,26 +1,10 @@
 <script setup lang="ts">
 
-const data = ref(null);
-const statusCode = ref(null);
-
-// const { data } = await useFetch('/api/hello');
-
-async function postData() {
-    const response = await $fetch('/api/register', {
-        method: 'POST',
-        body: { test: 123 },
-    });
-    data.value = response.body;
-    statusCode.value = response.status;
-}
-
-onMounted(() => {
-    postData()
-})
-
+const { status } = useAuth();
 </script>
 
 <template>
-    <h1>Status Code: {{ statusCode }}</h1>
-    <pre>{{ data }}</pre>
+    <h1>Netflix Clone</h1>
+    <NuxtLink to="/auth">Register/Login</NuxtLink>
+    <h2>Status: {{ status }}</h2>
 </template>

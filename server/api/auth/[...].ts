@@ -17,7 +17,7 @@ export default NuxtAuthHandler({
         if (!credentials?.email || !credentials?.password) {
           throw new Error('Email and password required');
         }
-
+        
         const user = await prismadb.user.findUnique({
           where: {
             email: credentials.email
@@ -39,7 +39,7 @@ export default NuxtAuthHandler({
     })
   ],
   pages: {
-    signIn: '/auth/test',
+    signIn: '/auth',
   },
   jwt: {
     secret: process.env.NEXTAUTH_JWT_SECRET,
