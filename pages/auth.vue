@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import axios from 'axios';
 
+const { status, data, signIn, signOut } = useAuth();
+
 const name = ref<string>('');
 const email = ref<string>('');
 const password = ref<string>('');
@@ -10,6 +12,20 @@ const toggleVariant = () => {
     variant.value = variant.value === 'login' ? 'register' : 'login';
 };
 
+const login = async () => {
+    try {
+        await signIn('credentials', {
+            email: email.value,
+            password: password.value,
+            redirect: false,
+            callbackUrl: '/',
+        });
+        navigateTo('/')
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const register = async () => {
     try {
         await axios.post('/api/register', {
@@ -17,10 +33,13 @@ const register = async () => {
             name: name.value,
             password: password.value,
         });
+        login();
     } catch (error) {
         console.log(error);
     }
 };
+
+
 
 </script>
 
@@ -40,7 +59,7 @@ const register = async () => {
                         <Input v-model="email" label="email" id="email" type="email" />
                         <Input v-model="password" label="password" id="password" type="password"/>
                     </div>
-                    <button @click="register()" class="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                    <button @click="variant === 'login' ? login() : register()" class="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
                         {{ variant === 'login' ? 'Login' : 'Sign up' }}
                     </button>
                     <p class="text-neutral-500 mt-12">
