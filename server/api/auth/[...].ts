@@ -6,18 +6,20 @@ import { NuxtAuthHandler } from '#auth'
 import { compare } from 'bcrypt';
 import prismadb from '@/lib/prismadb';
 
+import { PrismaAdapter } from '@next-auth/prisma-adapter';
+
 const runtimeConfig = useRuntimeConfig()
 
 export default NuxtAuthHandler({
   debug: process.env.NODE_ENV === 'development',
   providers: [
-    GithubProvider({
-      clientId: runtimeConfig.private.githubId,
-      clientSecret: runtimeConfig.private.githubSecret,
+    GithubProvider.default({
+      clientId: runtimeConfig.private.githubClientId,
+      clientSecret: runtimeConfig.private.githubClientSecret,
     }),
-    GoogleProvider({
-      clientId: runtimeConfig.private.googleId,
-      clientSecret: runtimeConfig.private.googleSecret,
+    GoogleProvider.default({
+      clientId: runtimeConfig.private.googleClientId,
+      clientSecret: runtimeConfig.private.googleClientSecret,
     }),
     CredentialsProvider.default({
       name: 'Credentials',
@@ -60,4 +62,5 @@ export default NuxtAuthHandler({
     strategy: 'jwt',
   },
   secret: process.env.NEXTAUTH_SECRET,
+  adapter: PrismaAdapter(prismadb),
 })

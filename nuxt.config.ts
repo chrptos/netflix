@@ -1,9 +1,9 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     private: {
-      githubId: process.env.NUXT_PRIVATE_GITHUB_ID,
+      githubClientId: process.env.NUXT_PRIVATE_GITHUB_CLIENT_ID,
+      githubClientSecret: process.env.NUXT_PRIVATE_GITHUB_CLIENT_SECRET,
       googleClientId: process.env.NUXT_PRIVATE_GOOGLE_CLIENT_ID,
-      githubSecret: process.env.NUXT_PRIVATE_GITHUB_SECRET,
       googleClientSecret: process.env.NUXT_PRIVATE_GOOGLE_CLIENT_SECRET,
     }
   },

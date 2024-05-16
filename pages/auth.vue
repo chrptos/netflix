@@ -61,10 +61,10 @@ const register = async () => {
                         {{ variant === 'login' ? 'Login' : 'Sign up' }}
                     </button>
                     <div class="flex flex-row items-center gap-4 mt-8 justify-center">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                        <div @click="signIn('google', { callbackUrl: '/' })" class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                             <Icon name="logos:google-icon" size="30" />
                         </div>
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
+                        <div @click="signIn('github', { callbackUrl: '/' })" class="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition">
                             <Icon name="logos:github-icon" size="30" />
                         </div>
                     </div>
