@@ -1,4 +1,12 @@
 export default defineNuxtConfig({
+  runtimeConfig: {
+    private: {
+      githubId: process.env.NUXT_PRIVATE_GITHUB_ID,
+      googleClientId: process.env.NUXT_PRIVATE_GOOGLE_CLIENT_ID,
+      githubSecret: process.env.NUXT_PRIVATE_GITHUB_SECRET,
+      googleClientSecret: process.env.NUXT_PRIVATE_GOOGLE_CLIENT_SECRET,
+    }
+  },
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   postcss: {
@@ -14,9 +22,4 @@ export default defineNuxtConfig({
         type: 'authjs'
     }
   },
-  // modules: ["@sidebase/nuxt-auth"],
-  // auth: {
-  //   baseURL: process.env.AUTH_ORIGIN,
-  //   enableGlobalAppMiddleware: true, // サイト全体で認証を必要にする
-  // },
 })

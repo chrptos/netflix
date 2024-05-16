@@ -1,12 +1,24 @@
 // file: ~/server/api/auth/[...].ts
 import CredentialsProvider from 'next-auth/providers/credentials'
+import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 import { NuxtAuthHandler } from '#auth'
 import { compare } from 'bcrypt';
 import prismadb from '@/lib/prismadb';
 
+const runtimeConfig = useRuntimeConfig()
+
 export default NuxtAuthHandler({
   debug: process.env.NODE_ENV === 'development',
   providers: [
+    GithubProvider({
+      clientId: runtimeConfig.private.githubId,
+      clientSecret: runtimeConfig.private.githubSecret,
+    }),
+    GoogleProvider({
+      clientId: runtimeConfig.private.googleId,
+      clientSecret: runtimeConfig.private.googleSecret,
+    }),
     CredentialsProvider.default({
       name: 'Credentials',
       credentials: {
