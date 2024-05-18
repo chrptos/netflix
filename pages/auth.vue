@@ -1,7 +1,15 @@
 <script setup lang="ts">
+definePageMeta({
+    auth: {
+        unauthenticatedOnly: true, // 認証済みでない場合は参照できる
+        navigateAuthenticatedTo: '/profiles', // 認証後の遷移先
+    }
+})
+
 import axios from 'axios';
 
 const { status, data, signIn, signOut } = useAuth();
+console.log('status:', status.value);
 
 const name = ref<string>('');
 const email = ref<string>('');
@@ -20,7 +28,7 @@ const login = async () => {
             redirect: false,
             callbackUrl: '/',
         });
-        navigateTo('/')
+        navigateTo('/profiles')
     } catch (error) {
         console.log(error);
     }

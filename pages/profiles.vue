@@ -2,7 +2,12 @@
 
 const { getSession } = useAuth();
 
-const userName = ref('');
+const name = ref<string>('Guest');
+
+onMounted(async () => {
+    const session = await getSession();
+    name.value = session?.user?.name || 'Guest'; // 名前がない場合は'Guest'を表示
+});
 
 </script>
 
@@ -11,7 +16,7 @@ const userName = ref('');
         <div class="flex flex-col">
             <h1 class="text-3xl md:text-6xl text-white text-center">Who is watching?</h1>
             <div class="flex items-center justify-center gap-8 mt-10">
-                <div @click="() => {}">
+                <div @click="navigateTo('/')">
                     <div class="group flex-row w-44 mx-auto">
                         <div class="
                             w-44
@@ -36,7 +41,7 @@ const userName = ref('');
                             text-center
                             group-hover:text-white
                         ">
-                            {{ userName }}
+                            {{ name }}
                         </div>
                     </div>
                 </div>
