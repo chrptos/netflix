@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios';
 
-definePageMeta({
-  middleware: 'auth',
-})
-
 const currentUser = ref();
 
 const { signOut, status, getSession } = useAuth();
