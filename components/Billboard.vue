@@ -8,7 +8,7 @@ withDefaults(defineProps<Props>(), {
   visible: false,
 });
 
-// TODO: videoファイルのcss
+// TODO: videoファイルのcssについて
 const { data, error, pending } = await useFetch('/api/random/');
 
 </script>
