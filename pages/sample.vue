@@ -3,44 +3,36 @@
 </script>
 
 <template>
-    <div class="container">
-        <h2><code>display: block</code></h2>
+    <main class="container">
         <div class="wrapper">
-            <div class="box"></div>
+            <div class="box box-center"></div>
         </div>
-
-        <h2><code>display: inline</code></h2>
-        <div class="wrapper-center">
-            <span>テキスト</span>
-        </div>
-
-        <h2><code>display: inline-block</code></h2>
-        <div class="wrapper-center">
-            <button>ボタン</button>
-        </div>
-    </div>
+    </main>
 </template>
 
 <style>
 .container {
-    padding: 1rem;
+  padding: 2rem;
 }
 
 .wrapper {
-    background-color: #fdffab;
+  border: 3px solid #bbb;
+  height: 12rem;
+  position: relative;
 }
 
 .box {
-    background-image: linear-gradient(#4facfe, #00f2fe);
-    height: 3rem;
-    width: 3rem;
-    /* この指定で左右に中央寄せする */
-    margin: 0 auto;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  border-radius: 0.5rem;
+  height: 4rem;
+  width: 4rem;
 }
 
-.wrapper-center {
-    background-color: #ffe2e2;
-    /* この指定で左右に中央寄せする */
-    text-align: center;
+.box-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
+
 </style>
