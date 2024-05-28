@@ -3,35 +3,36 @@
 </script>
 
 <template>
-<main class="container">
-  <div class="wrapper wrapper-center-flex">
-    <div class="box"></div>
-  </div>
-</main>
+<header class="header">Header</header>
+<main class="main">Main</main>
+<footer class="footer">Footer</footer>
+<span class="span">Span</span>
 </template>
 
 <style>
 
-.container {
-  padding: 2rem;
+.header {
+  background-color: #7effdb;
+  padding: 1rem;
 }
 
-.wrapper {
-  border: 3px solid #bbb;
-  height: 12rem;
+.main {
+  background-color: #b693fe;
+  padding: 2rem 1rem;
+  
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
 }
 
-.wrapper-center-flex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.footer {
+  background-color: #ff9de2;
+  padding: 1rem;
 }
 
-.box {
-  background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
-  border-radius: 0.5rem;
-  height: 4rem;
-  width: 4rem;
+.span {
+  display: inline-block;
+  background-color: red;
+  padding: 1rem;
 }
-
 </style>
