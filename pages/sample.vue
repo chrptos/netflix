@@ -4,55 +4,50 @@
 
 <template>
 
-<header class="header">Header</header>
-<div class="wrapper">
-  <main class="main">Main</main>
-  <aside class="aside">Aside</aside>
+<div class="flex-basis">
+  <p>flex-basis</p>
+  <div class="flex-container">
+    <div class="flex-item item1">item1</div>
+    <div class="flex-item item2">item2</div>
+    <div class="flex-item item3">item3</div>
+  </div>
 </div>
-<footer class="footer">Footer</footer>
 
 </template>
 
 <style>
-
-.header {
-  background-color: #7effdb;
-  padding: 1rem;
+.flex-item {
+    background-color: red;
+    border: solid;
 }
 
-.wrapper {
-  display: flex;
-  margin: 0 auto;
-  max-width: 600px;
-  width: 100%;
+.flex-container {
+	display: flex;
+	width: 900px;
 }
-
-.main {
-  background-color: #b693fe;
-  padding: 2rem 1rem;
-  flex: 1 1 auto;
+.item1 {
+	flex: none;
+	/*
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: auto;
+	*/
 }
-
-.aside {
-  background-color: #8c82fc;
-  padding: 2rem 1rem;
-  width: 160px;
+.item2 {
+	flex: 0 0 200px;
+	/*
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: 200px;
+	*/
 }
-
-.footer {
-  background-color: #ff9de2;
-  padding: 1rem;
-}
-
-/* max-widthが600pxまでしか表示できないscreenを持つデバイスは以下のcssが適用される */
-@media screen and (max-width: 600px) {
-  .wrapper {
-    display: block;
-  }
-  
-  .aside {
-    width: 100%;
-  }
+.item3 {
+	flex: 1 0 0px;
+	/*
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 0;
+	*/
 }
 
 </style>
