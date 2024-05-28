@@ -3,14 +3,15 @@
 </script>
 
 <template>
-    <main class="container">
-        <div class="wrapper">
-            <div class="box box-center"></div>
-        </div>
-    </main>
+<main class="container">
+  <div class="wrapper wrapper-center-flex">
+    <div class="box"></div>
+  </div>
+</main>
 </template>
 
 <style>
+
 .container {
   padding: 2rem;
 }
@@ -18,21 +19,19 @@
 .wrapper {
   border: 3px solid #bbb;
   height: 12rem;
-  position: relative;
+}
+
+.wrapper-center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box {
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
   border-radius: 0.5rem;
   height: 4rem;
   width: 4rem;
-}
-
-.box-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
 }
 
 </style>
