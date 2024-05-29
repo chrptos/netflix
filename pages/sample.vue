@@ -4,12 +4,25 @@
 
 <template>
 
-<div class="flex-basis">
-  <p>flex-basis</p>
-  <div class="flex-container">
-    <div class="flex-item item1">item1</div>
-    <div class="flex-item item2">item2</div>
-    <div class="flex-item item3">item3</div>
+<div class="container">
+  <button class="button" data-modal-open="modal-1">
+    OPEN
+  </button>
+  
+  <div class="modal" id="modal-1">
+    <div class="modal-overlay" data-modal-close>
+      <div class="modal-container">
+        <h2 class="modal-title">モーダルウィンドウ</h2>
+        <div class="modal-content">
+          <p>モーダルウィンドウ（英: modal window）は、コンピュータアプリケーションソフトウェアのユーザインタフェース設計において、何らかのウィンドウの子ウィンドウとして生成されるサブ要素のうち、ユーザーがそれに対して適切に応答しない限り、制御を親ウィンドウに戻さないもの。</p>
+        </div>
+        <div class="modal-footer">
+          <button class="button" data-modal-close="modal-1">
+            OK
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
