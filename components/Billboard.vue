@@ -8,8 +8,12 @@ withDefaults(defineProps<Props>(), {
   visible: false,
 });
 
+const movieId = ref(0);
+
 // TODO: videoファイルのcssについて
 const { data, error, pending } = await useFetch('/api/random/');
+
+movieId.value = 1;
 
 </script>
 
@@ -48,6 +52,7 @@ const { data, error, pending } = await useFetch('/api/random/');
       <div class="
         flex flex-row items-center mt-3 md:mt-4 gap-3
       ">
+        <PlayButton :movie-id="movieId" />
         <button class="
           bg-white
           text-white

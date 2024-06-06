@@ -12,8 +12,10 @@ interface Movie {
 }
 
 const { data, error, pending } = await useFetch<Movie[]>('/api/movies/');
-
 const movies = ref<Movie[]>(data.value || []);
+
+// const 
+// const { data, error, pending } = await useFetch<Movie[]>(`/api/movie/${movieId}`);
 
 </script>
 
